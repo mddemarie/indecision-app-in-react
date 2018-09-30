@@ -12,3 +12,16 @@ console.log(square(3));
 const squareArrow = (x) => x * x;
 
 console.log(squareArrow(8));
+
+// Code Challenge:
+const getFirstName = (x) => {
+    const firstName = x.split(' ')[0];
+    return firstName;
+  };
+  
+  console.log(getFirstName('Marie Dedikova'));
+  
+  // Arrow function - short syntax
+  const getFirstNameShort = (x) => x.split(' ')[0];
+  console.log(getFirstNameShort('John Smith'));
+  
