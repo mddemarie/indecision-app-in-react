@@ -80,3 +80,15 @@ const user4 = {
         return this.cities.map((city) => this.name + ' has lived in ' + city); // shorter!
     }
 };
+
+// Code Challenge
+
+const multiplier = {
+    numbers: [1, 2, 3],
+    multiplyBy: 3,
+    multiply() {
+        return this.numbers.map((number) => number * this.multiplyBy);
+    }
+};
+
+console.log(multiplier.multiply());
