@@ -6,7 +6,7 @@ const app = {
   options: []
 };
 
-const removeAllNums = () => {
+const onRemoveAll = () => {
   while(app.options.length > 0) {
     app.options.pop();
   };
@@ -35,7 +35,7 @@ const renderReactTemplate = () => {
       {app.subtitle && <p>{app.subtitle}</p>}
       <p>{app.options.length > 0 ? 'Here are your options:' : 'No options'}</p>
       <p>{app.options.length}</p>
-      <button onClick={removeAllNums}>Remove All</button>
+      <button onClick={onRemoveAll}>Remove All</button>
       <ol>
         <li>Item one</li>
         <li>Item two</li>
