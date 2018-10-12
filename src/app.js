@@ -29,7 +29,7 @@ const minusOne = () => {
   renderCounterApp();
 };
 const reset = () => {
-  count = 0
+  count = 0;
   renderCounterApp();
 };
 
