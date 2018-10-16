@@ -27,6 +27,8 @@ const onFormSubmit = (e) => {
 
 const appRoot = document.getElementById('app');
 
+const numbers = [55, 101, 1000];
+
 const renderReactTemplate = () => {
   // JSX - JavaScript XML
   const template = (
@@ -36,6 +38,11 @@ const renderReactTemplate = () => {
       <p>{app.options.length > 0 ? 'Here are your options:' : 'No options'}</p>
       <p>{app.options.length}</p>
       <button onClick={onRemoveAll}>Remove All</button>
+      {
+        numbers.map((number) => {
+          return <p key={number}>Number: {number}</p>
+        })
+      }
       <ol>
         <li>Item one</li>
         <li>Item two</li>
