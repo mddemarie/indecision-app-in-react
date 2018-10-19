@@ -5,8 +5,11 @@ const app = {
     hideButton: "Hide details"
 };
 
-const onShowDetails = () => {
-    return <p>{app.text}</p> // TODO: this part does not work yet!
+let visibility = false;
+
+const toggleVisibility = () => {
+    visibility = !visibility;
+    renderApp();
 };
 
 const appRoot = document.getElementById('app');
@@ -15,7 +18,10 @@ const renderApp = () => {
     const template = (
         <div>
             <h1>{app.title}</h1>
-            <button onClick={onShowDetails}>{app.showButton}</button>
+            <button onClick={toggleVisibility}>
+                {visibility ? app.hideButton : app.showButton}
+            </button>
+            <p>{visibility === true ? app.text : ''}</p>
         </div>
     );
     ReactDOM.render(template, appRoot);
