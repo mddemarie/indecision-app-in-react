@@ -36,14 +36,14 @@ class Options extends React.Component {
     return (
       <div>
         <h3>Here are your options:</h3>
-        <AddOption />
-        <AddOption />
+        <Option />
+        <Option />
       </div>
     );
   }
 }
 
-class AddOption extends React.Component {
+class Option extends React.Component {
   render() {
     return (
       <div>
