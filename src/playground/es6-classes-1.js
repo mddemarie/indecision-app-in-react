@@ -11,7 +11,7 @@ class Person {
     }
 }
 
-const me = new Person('Marie Dedikova');
+const me = new Person('Marie Dedikova', 30);
 console.log(me.getGreeting());
 console.log(me.getDescription());
 
