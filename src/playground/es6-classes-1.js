@@ -29,15 +29,15 @@ class Student extends Person {
 }
 
 class Traveler extends Person {
-    constructor(name, city) {
-        super();
-        this.city = city;
+    constructor(name, homeLocation) {
+        super(name);
+        this.homeLocation = homeLocation;
     }
     getGreeting() {
         let greeting = super.getGreeting();
 
-        if (this.city) {
-            return `${greeting}. I'm visiting from ${this.city}.`;
+        if (this.homeLocation) {
+            return `${greeting} I'm visiting from ${this.homeLocation}.`;
         }
 
         return greeting;
