@@ -5,8 +5,21 @@ class Counter extends React.Component {
     this.handleMinusOne = this.handleMinusOne.bind(this);
     this.handleReset = this.handleReset.bind(this);
     this.state = {
-      count: props.count
+      count: 0
     };
+  }
+  componentDidMount() {
+    const stringifiedCount = localStorage.getItem('count');
+    const count = parseInt(stringifiedCount, 10); // we use here parseInt instead of JSON.parse()
+    if (!isNaN(count)) { // we check if count is really a number
+      this.setState(() => ({ count }));
+    }
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.count !== this.state.count) {
+      const count = this.state.count.toString(); // we use here toString() instead of JSON.stringify()
+      localStorage.setItem('count', count);
+    }
   }
   handleAddOne() {
     // this.state.count = this.state.count + 1 -> this will not work, it will not access the state from constructor
@@ -42,10 +55,6 @@ class Counter extends React.Component {
     );
   }
 }
-
-Counter.defaultProps = {
-  count: 0
-};
 
 ReactDOM.render(<Counter />, document.getElementById('app'));
 
