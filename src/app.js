@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
+// import './styles/styles.scss'
 
 const ExpenseDashboardPage = () =>  (
     <div>
@@ -28,19 +29,33 @@ const HelpPage = () => (
 
 const NotFoundPage = () => (
     <div>
-        404! - <a href="/">Go Home</a>
+        404! - <Link to="/">Go Home</Link>
+        {/* 404! - <a href="/">Go Home</a> */}
     </div>
+)
+
+const Header = () => (
+    <header>
+        <h1>Expensify</h1>
+        <NavLink to="/" activeClassName="is-active" exact={true}>Home Page</NavLink>
+        <NavLink to="/create" activeClassName="is-active">Create Expense</NavLink>
+        <NavLink to="/edit" activeClassName="is-active">Edit Expense</NavLink>
+        <NavLink to="/help" activeClassName="is-active">Help</NavLink>
+    </header>
 )
 
 const routes = (
     <BrowserRouter>
-        <Switch>
-            <Route path="/" component={ExpenseDashboardPage} exact={true}/>
-            <Route path="/create" component={AddExpensePage} />
-            <Route path="/edit" component={EditExpensePage} />
-            <Route path="/help" component={HelpPage} />
-            <Route component={NotFoundPage} />
-        </Switch>
+        <div>
+            <Header />
+            <Switch>
+                <Route path="/" component={ExpenseDashboardPage} exact={true}/>
+                <Route path="/create" component={AddExpensePage} />
+                <Route path="/edit" component={EditExpensePage} />
+                <Route path="/help" component={HelpPage} />
+                <Route component={NotFoundPage} />
+            </Switch>
+        </div>
     </BrowserRouter>
 );
 
